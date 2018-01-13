@@ -1,7 +1,7 @@
 let projectId = '';
 const Asana = {
     setLocation() {
-        if( window.location.pathname.indexOf('asana') !== 1 ) {
+        if( window.location.pathname.indexOf('asana/') !== 1 ) {
             const newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + `asana/${projectId}`;
             window.history.pushState({path:newurl},'',newurl);
         }
