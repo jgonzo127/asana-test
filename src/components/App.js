@@ -13,16 +13,6 @@ class App extends Component{
     }
     this.removeTask = this.removeTask.bind(this);
   }
-
-  componentDidMount() {
-    Asana.getAsanaProject().then( (projectId) => {
-      Asana.getAsanaTasks().then( (data) => {
-          this.setState({ tasks: data, projectId: projectId });
-          Asana.setLocation(this.state.projectId);
-      })
-      
-    });
-  }
   
   removeTask(id) {
     const tasks = this.state.tasks;
@@ -30,6 +20,16 @@ class App extends Component{
       return( task.id !== id );
     });
     this.setState({ tasks: newTasks });
+  }
+
+componentDidMount() {
+      Asana.getAsanaProject().then((projectId) => {
+        Asana.getAsanaTasks().then((data) => {
+          this.setState({ tasks: data, projectId: projectId });
+          Asana.setLocation(this.state.projectId);
+        })
+
+      });
   }
 
   render() {
