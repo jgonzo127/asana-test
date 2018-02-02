@@ -17,7 +17,7 @@ const Asana = {
             const expiration = Number(expirationMatch[1]);
             // Set access token to expire
             window.setTimeout(() => accessToken = '', expiration * 1000);
-            window.history.pushState('Access Token', null, '/asana-test'); 
+            window.history.pushState('Access Token', null, '/asana-test/'); 
             return accessToken;
         } else {
             const callback = `https://app.asana.com/-/oauth_authorize?response_type=token&client_id=${clientId}&redirect_uri=${redirect_uri}&state=California`;
